@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    html{
+    background: black;
+    color:white;
+    }
+    .contenedor{
+        border:solid 5px white;
+        margin:10px;
+        padding: 10px;
+        width: 50%;
+        height: 50%;
+    }    
+</style>
+<body>
+    <!--div para generar la conbgiguracion de la caja-->
+    <h1 class="datos">mecanogragia juego.</h1>
+    <div class="contenedor">
+        <label class="alazar"for=""
+        id="alazar">alazar</label>
+        <input type="text" id="caja-texto" placeholder="Enter:nuevo caracter">
+        <Label id="msg_correcto"></Label>
+    </div>
+    <script>
+    let alazar = document.getElementById ("alazar")
+    let cj_txt = document.getElementById("caja-texto")
+    
+
+    let msg = document.getElementById("msg_correcto")
+         const characters ='qwertasdfgzxcvb';
+    let result1= ' ';
+    const charactersLength = characters.length;
+
+    cj_txt.addEventListener("keydown", function(event){
+        if (event.key === "Enter") {
+        // Ejecutar la acción           correspondiente
+        console.log("ppajia ")
+        result1 = characters.charAt(Math.floor(Math.random() * charactersLength));
+        alazar.innerHTML= result1    
+        }
+        //pajina para desarrolladores
+        if(event.key==result1){
+            console.log("correcto")
+            msg.innerHTML="correcto<br> presione enter para el siguiente"
+            cj_txt.value=""
+            cj_txt.style.background="green"
+            msg.style.color="blue"
+        }else{
+            console.log("incorrecto")
+            msg.innerHTML="incorrecto"
+            msg.style.color="red"
+            cj_txt.value=""
+            cj_txt.style.background="red"
+        }
+    })
+    </script>
+</body>
+</html>
